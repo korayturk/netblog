@@ -1,12 +1,11 @@
 # NetBLog Api Projesi
-Bu proje, en çok tercih edilen teknolojilerin kullanımlarına örnek olması amacıyla yapılmıştır.
+Bu proje, en Ã§ok tercih edilen teknolojilerin kullanÄ±mlarÄ±na Ã¶rnek olmasÄ± amacÄ±yla yapÄ±lmÄ±ÅŸtÄ±r.
 
-Reacj.js ile admin paneli ve ön yüz yapılacaktır. Admin paneli "react-admin" ile yapılacaktır. Repoları oluşturulunca buraya linklenecektir.
+Reacj.js ile admin paneli ve Ã¶n yÃ¼zÃ¼ yapÄ±lacaktÄ±r. Admin paneli "react-admin" ile yapÄ±lacaktÄ±r. RepolarÄ± oluÅŸturulunca buraya linklenecektir.
 
-**Config ayarlarını unutmayın.**
-**Proje C# 7.3 ile yapılmıştır. Derlerken sorun yaşamamanız için Visual Studio 2019 kullanmanız önerilir.**
+**Config ayarlarÄ±nÄ± unutmayÄ±n.**
 
-Teşekkürler.
+TeÅŸekkÃ¼rler.
 
 
 ## Uygulamalar
