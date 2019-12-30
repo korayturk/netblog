@@ -48,7 +48,7 @@ namespace NetBLog.Api
                 collectionName: configuration.GetSection("MongoDbConnection:ActivityLogCollectionName").Value)
                 .CreateLogger());
 
-            if (configuration.GetSection("CacheSettings:CacheWith").Value == "Redis")
+            if (configuration.GetSection("CacheSettings:CacheWith")?.Value == "Redis")
             {
                 services.AddSingleton(typeof(ICacheManager), typeof(RedisCache));
 

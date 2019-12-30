@@ -11,7 +11,8 @@ Teşekkürler.
 ## Uygulamalar
 * Onion Architecture
 * Domain Driven Design
-* Inversion of Control
+* Service Oriented Architecture
+* Dependency Injection
 * Transaction Manager
 * Repository Pattern
 * Database Migrations
@@ -22,6 +23,8 @@ Teşekkürler.
 * In-Memory Cache
 * Distributed cache
 * Validation
+* DTO Mapping
+* Soft Delete
 
 
 ## Teknolojiler
@@ -36,3 +39,4 @@ Teşekkürler.
 * MongoDb
 * Redis
 * FluentValidation
+* AutoMapper
