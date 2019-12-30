@@ -10,7 +10,7 @@ namespace NetBLog.Api.Aspects
         public override void OnActionExecuted(ActionExecutedContext context)
         {
             using (StreamReader reader = new StreamReader(context.HttpContext.Request.Body))
-            {
+            { 
                 var username = context.HttpContext.User.Identity.IsAuthenticated ? context.HttpContext.User.Identity.Name : "Anonymous User";
 
                 var logger = (ILogger)context.HttpContext.RequestServices.GetService(typeof(ILogger));

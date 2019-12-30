@@ -25,6 +25,7 @@ namespace NetBLog.Api.Controllers
 
         [HttpPut]
         [Authorize(Roles = "Admin,Writer")]
+        [ActivityLog]
         [ParameterValidator(typeof(BlogValidator))]
         public IActionResult Add(BlogContract contract)
         {

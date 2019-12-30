@@ -11,7 +11,8 @@ Teşekkürler.
 ## Uygulamalar
 * Onion Architecture
 * Domain Driven Design
-* Inversion of Control
+* Service Oriented Architecture
+* Dependency Injection
 * Transaction Manager
 * Repository Pattern
 * Database Migrations
@@ -22,7 +23,12 @@ Teşekkürler.
 * In-Memory Cache
 * Distributed cache
 * Validation
-
+* DTO Mapping
+* Soft Delete
+cache thread safe
+search elastic
+ikon projesinden isdeleted çakılacak dbcontext içinde..^^
+async await projede kullanılacak
 
 ## Teknolojiler
 * ASP.NET Core 2.2
@@ -36,3 +42,4 @@ Teşekkürler.
 * MongoDb
 * Redis
 * FluentValidation
+* AutoMapper
