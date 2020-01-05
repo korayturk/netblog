@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetBLog.Resources", "NetBLog.Resources\NetBLog.Resources.csproj", "{537FE63E-3CFE-428F-B4F1-90637B5D3191}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetBLog.Web", "NetBLog.Web\NetBLog.Web.csproj", "{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{537FE63E-3CFE-428F-B4F1-90637B5D3191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{537FE63E-3CFE-428F-B4F1-90637B5D3191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{537FE63E-3CFE-428F-B4F1-90637B5D3191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{491E36D0-82E8-4FF8-A68D-F34DE56543EB} = {927105B2-5828-41AE-ACE1-46CFB5DA123C}
 		{527A5B6B-970A-4A5F-96E8-1EDCB2C13220} = {13C05C65-8458-4DBA-8958-D87A24B0DB50}
 		{537FE63E-3CFE-428F-B4F1-90637B5D3191} = {13C05C65-8458-4DBA-8958-D87A24B0DB50}
+		{0ADB301C-4A3F-4A8A-B78F-9E0BAB94DB09} = {93BD7FCA-84AB-4CC5-B013-34A76B83A96E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0D0C0928-09F2-412C-A548-AEBE4AC4A93A}
