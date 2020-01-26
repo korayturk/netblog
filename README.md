@@ -25,10 +25,6 @@ Teşekkürler.
 * Validation
 * DTO Mapping
 * Soft Delete
-cache thread safe
-search elastic
-ikon projesinden isdeleted çakılacak dbcontext içinde..^^
-async await projede kullanılacak
 
 ## Teknolojiler
 * ASP.NET Core 2.2
