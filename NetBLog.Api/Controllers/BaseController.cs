@@ -10,5 +10,6 @@ namespace NetBLog.Api.Controllers
     [TypeFilter(typeof(TransactionManagerFilter))]
     public class BaseController : ControllerBase
     {
+        public int HeaderLanguage => int.Parse(Request.Headers["language"].ToString());
     }
 }

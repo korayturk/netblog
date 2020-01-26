@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace NetBLog.Api.Controllers
 {
@@ -28,9 +29,9 @@ namespace NetBLog.Api.Controllers
         [HttpPost]
         [Route("Login")]
         [ParameterValidator(typeof(LoginValidator))]
-        public IActionResult Login(LoginContract contract)
+        public async Task<IActionResult> Login(LoginContract contract)
         {
-            var user = _userService.Login(contract.Email, contract.Password);
+            var user = await _userService.Login(contract.Email, contract.Password);
             var token = CreateToken(user);
             return Ok(token);
         }

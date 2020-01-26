@@ -35,11 +35,13 @@ namespace NetBLog.Api
             services.AddScoped(typeof(ICategoryRepository), typeof(CategoryRepository));
             services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
             services.AddScoped(typeof(ICommentRepository), typeof(CommentRepository));
+            services.AddScoped(typeof(ILanguageRepository), typeof(LanguageRepository));
 
             services.AddScoped(typeof(ICategoryService), typeof(CategoryService));
             services.AddScoped(typeof(IBlogService), typeof(BlogService));
             services.AddScoped(typeof(IUserService), typeof(UserService));
             services.AddScoped(typeof(ICommentService), typeof(CommentService));
+            services.AddScoped(typeof(ILanguageService), typeof(LanguageService));
 
             services.AddAutoMapper(typeof(AutoMapperConfiguration));
 

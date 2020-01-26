@@ -12,6 +12,7 @@ namespace NetBLog.Service.Configuration
             CreateMap<UserContract, User>().ReverseMap();
             CreateMap<CommentContract, Comment>().ReverseMap();
             CreateMap<BlogContract, Blog>().ReverseMap();
+            CreateMap<LanguageContract, Language>().ReverseMap();
         }
     }
 }

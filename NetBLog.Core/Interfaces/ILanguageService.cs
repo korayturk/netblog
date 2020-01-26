@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace NetBLog.Service.Interfaces
 {
-    public interface ICategoryService : IServiceBase
+    public interface ILanguageService : IServiceBase
     {
-        Task<IEnumerable<CategoryContract>> GetForTopMenu(int languageId);
+        Task<List<LanguageContract>> GetAll();
     }
 }

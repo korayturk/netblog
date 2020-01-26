@@ -4,34 +4,33 @@ using NetBLog.Entity;
 using NetBLog.Repository.Interfaces;
 using NetBLog.Service.Interfaces;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NetBLog.Service.Implementation
 {
-    public class CommentService : ICommentService
+    public class CommentService : ServiceBase, ICommentService
     {
         private readonly ICommentRepository _commentRepository;
-        private readonly IMapper _mapper;
-        public CommentService(ICommentRepository commentRepository, IMapper mapper)
+        public CommentService(ICommentRepository commentRepository, IMapper mapper) : base(mapper)
         {
             _commentRepository = commentRepository;
-            _mapper = mapper;
         }
 
-        public CommentContract Add(CommentContract contract)
+        public async Task<CommentContract> Add(CommentContract contract)
         {
-            return _mapper.Map<CommentContract>(
-                _commentRepository.Add(_mapper.Map<Comment>(contract)));
+            var data = await _commentRepository.Add(Mapper.Map<Comment>(contract));
+            return Mapper.Map<CommentContract>(data);
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _commentRepository.Delete(id);
+            await _commentRepository.Delete(id);
         }
 
-        public IEnumerable<CommentContract> GetByBlogId(int blogId)
+        public async Task<IEnumerable<CommentContract>> GetByBlogId(int blogId)
         {
-            var data = _commentRepository.Find(x => x.BlogId == blogId);
-            return _mapper.Map<IEnumerable<CommentContract>>(data);
+            var data = await _commentRepository.Find(x => x.BlogId == blogId);
+            return Mapper.Map<IEnumerable<CommentContract>>(data);
         }
     }
 }

@@ -5,27 +5,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace NetBLog.Repository.Implementation
 {
     public class Repository<T> : IRepository<T> where T : class, new()
     {
-        //TODO: options to be made
         private readonly DbContext _context;
         public Repository(DbContext context)
         {
             _context = context;
         }
 
-        public T Add(T entity)
+        public async Task<T> Add(T entity)
         {
             if (entity is IModifiable)
                 (entity as IModifiable).CreatedAt = DateTime.Now;
 
-            return _context.Set<T>().Add(entity).Entity;
+            return (await _context.Set<T>().AddAsync(entity)).Entity;
         }
 
-        public void AddRange(IEnumerable<T> entities)
+        public async Task AddRange(IEnumerable<T> entities)
         {
             var createdAt = DateTime.Now;
 
@@ -33,60 +33,61 @@ namespace NetBLog.Repository.Implementation
                 if (item is IModifiable)
                     (item as IModifiable).CreatedAt = createdAt;
 
-            _context.Set<T>().AddRange(entities);
+            await _context.Set<T>().AddRangeAsync(entities);
         }
 
-        public void Delete(object id)
+        public async Task Delete(object id)
         {
-            _context.Set<T>().Remove(GetById(id));
+            var entity = await GetById(id);
+            await Task.Run(() => _context.Set<T>().Remove(entity));
         }
 
-        public void Delete(T entity)
+        public async Task Delete(T entity)
         {
             if (entity is ISoftDelete)
             {
                 (entity as ISoftDelete).DeletedAt = DateTime.Now;
-                Update(entity);
+                await Update(entity);
             }
             else
-                _context.Set<T>().Remove(entity);
+                await Task.Run(() => _context.Set<T>().Remove(entity));
         }
 
-        public void DeleteRange(IEnumerable<T> entities)
+        public async Task DeleteRange(IEnumerable<T> entities)
         {
             var entity = entities.FirstOrDefault();
             if (entity is ISoftDelete)
             {
                 foreach (var item in entities)
-                    Delete(item);
+                    await Delete(item);
             }
             else
-                _context.Set<T>().RemoveRange(entities);
+                await Task.Run(() => _context.Set<T>().RemoveRange(entities));
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
         {
-            return _context.Set<T>().AsNoTracking().Where(expression);
+            return await Task.FromResult(_context.Set<T>().AsNoTracking().Where(expression));
         }
 
-        public IEnumerable<T> GetAll()
+        public async Task<IEnumerable<T>> GetAll()
         {
-            return _context.Set<T>().AsNoTracking().AsEnumerable();
+            return await Task.FromResult(_context.Set<T>().AsNoTracking().AsEnumerable());
         }
 
-        public T GetById(object id)
+        public async Task<T> GetById(object id)
         {
-            return _context.Set<T>().Find(id);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-        public T Update(T entity)
+        public async Task<T> Update(T entity)
         {
-            return _context.Set<T>().Update(entity).Entity;
+            return await Task.FromResult(_context.Set<T>().Update(entity).Entity);
         }
 
-        public int SaveChanges()
+        public async Task<int> SaveChanges()
         {
-            return _context.SaveChanges();
+            return await _context.SaveChangesAsync();
         }
     }
 }

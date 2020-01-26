@@ -14,5 +14,6 @@ namespace NetBLog.Data
         public DbSet<Category> Category { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Language> Language { get; set; }
     }    
 }

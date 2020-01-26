@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetBLog.Data;
 
 namespace NetBLog.Data.Migrations
 {
     [DbContext(typeof(NetBLogDbContext))]
-    partial class NetBLogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200111222447_Added_Language_Table")]
+    partial class Added_Language_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,17 +70,11 @@ namespace NetBLog.Data.Migrations
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("Icon");
-
                     b.Property<int>("LanguageId");
-
-                    b.Property<int>("Order");
 
                     b.Property<int?>("ParentId");
 
                     b.Property<string>("Title");
-
-                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 
@@ -121,8 +117,6 @@ namespace NetBLog.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code");
-
-                    b.Property<string>("Icon");
 
                     b.Property<string>("Name");
 
@@ -167,7 +161,7 @@ namespace NetBLog.Data.Migrations
             modelBuilder.Entity("NetBLog.Entity.Category", b =>
                 {
                     b.HasOne("NetBLog.Entity.Category", "Parent")
-                        .WithMany("SubCategories")
+                        .WithMany("Children")
                         .HasForeignKey("ParentId");
                 });
 

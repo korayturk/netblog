@@ -19,6 +19,7 @@ namespace NetBLog.Entity
         public bool AllowWriteComment { get; set; }
         public bool ShowComment { get; set; }
         public string Tags { get; set; }
+        public int LanguageId { get; set; }
         public DateTime? DeletedAt { get; set; }
         public DateTime? ActivatedAt { get; set; }
 

@@ -1,11 +1,12 @@
 ﻿using NetBLog.Contract;
+using System.Threading.Tasks;
 
 namespace NetBLog.Service.Interfaces
 {
-    public interface IUserService
+    public interface IUserService : IServiceBase
     {
-        UserContract Login(string email, string password);
-        UserContract AddUser(UserContract contract);
-        UserContract GetByEmail(string email);
+        Task<UserContract> Login(string email, string password);
+        Task<UserContract> AddUser(UserContract contract);
+        Task<UserContract> GetByEmail(string email);
     }
 }

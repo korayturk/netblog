@@ -1,11 +1,12 @@
 ﻿using NetBLog.Contract;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NetBLog.Service.Interfaces
 {
-    public interface IBlogService
+    public interface IBlogService : IServiceBase
     {
-        IEnumerable<BlogContract> List(DataFilterContract contract);
-        BlogContract Add(BlogContract contract);
+        Task<IEnumerable<BlogContract>> List(DataFilterContract contract);
+        Task<BlogContract> Add(BlogContract contract);
     }
 }

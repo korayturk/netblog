@@ -7,7 +7,7 @@ namespace NetBLog.Contract
     {
         public CategoryContract()
         {
-            Children = new List<CategoryContract>();
+            SubCategories = new List<CategoryContract>();
             Blogs = new List<BlogContract>();
         }
         public int Id { get; set; }
@@ -16,10 +16,14 @@ namespace NetBLog.Contract
 
         public string Title { get; set; }
         public string Description { get; set; }
+        public int LanguageId { get; set; }
+        public string Icon { get; set; }
+        public int Order { get; set; }
+        public string Url { get; set; }
         public DateTime? DeletedAt { get; set; }
 
         public CategoryContract Parent { get; set; }
-        public List<CategoryContract> Children { get; set; }
+        public List<CategoryContract> SubCategories { get; set; }
 
         public List<BlogContract> Blogs { get; set; }
     }

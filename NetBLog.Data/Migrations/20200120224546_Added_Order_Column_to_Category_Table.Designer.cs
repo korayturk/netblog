@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NetBLog.Data;
 
 namespace NetBLog.Data.Migrations
 {
     [DbContext(typeof(NetBLogDbContext))]
-    partial class NetBLogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200120224546_Added_Order_Column_to_Category_Table")]
+    partial class Added_Order_Column_to_Category_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,8 +79,6 @@ namespace NetBLog.Data.Migrations
                     b.Property<int?>("ParentId");
 
                     b.Property<string>("Title");
-
-                    b.Property<string>("Url");
 
                     b.HasKey("Id");
 
@@ -167,7 +167,7 @@ namespace NetBLog.Data.Migrations
             modelBuilder.Entity("NetBLog.Entity.Category", b =>
                 {
                     b.HasOne("NetBLog.Entity.Category", "Parent")
-                        .WithMany("SubCategories")
+                        .WithMany("Children")
                         .HasForeignKey("ParentId");
                 });
 

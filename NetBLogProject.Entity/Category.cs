@@ -9,7 +9,7 @@ namespace NetBLog.Entity
     {
         public Category()
         {
-            Children = new HashSet<Category>();
+            SubCategories = new HashSet<Category>();
             Blogs = new HashSet<Blog>();
         }
 
@@ -19,11 +19,15 @@ namespace NetBLog.Entity
 
         public string Title { get; set; }
         public string Description { get; set; }
+        public int LanguageId { get; set; }
+        public string Icon { get; set; }
+        public int Order { get; set; }
+        public string Url { get; set; }
         public DateTime? DeletedAt { get; set; }
 
         [ForeignKey("ParentId")]
         public virtual Category Parent { get; set; }
-        public virtual ICollection<Category> Children { get; set; }
+        public virtual ICollection<Category> SubCategories { get; set; }
 
         public virtual ICollection<Blog> Blogs { get; set; }
     }

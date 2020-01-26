@@ -18,7 +18,6 @@ namespace NetBLog.Api.Filters
             _context.Database.BeginTransaction();
 
             await next();
-
             try
             {
                 if (_context.ChangeTracker.HasChanges())
